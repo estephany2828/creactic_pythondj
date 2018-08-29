@@ -1,0 +1,32 @@
+{% extends 'base.html '%}
+{%  block titulo%}
+LISTA PRODUCTOS
+{% endblock titulo%}
+
+{% block contenido%}
+    <h2>Lista de productos</h2>
+    {{lista}}
+    {% if request.user.is_authenticated and request.user.is_superuser %}
+      <a href="{% url 'agregar_producto' %}">agregar_producto</a>
+    {% endif %}
+
+    {%for x in lista %}
+        <p>
+            {{forLoop.counter }}
+            {{x.id}}
+            {{x.nombre}}
+            {{x.precio}}
+            {{x.marca}}     
+            {% if x.foto%}
+            <img src="/media/{{x.foto}}" width="60px">
+            {% endif%}
+            {{ x.Categoria}}
+            <a href = "{% url 'ver_producto' id_producto=x.id %}" >ver producto</a> 
+               </p>
+               <a href = "{% url 'editar_producto' id_producto=x.id %}" >Editar producto</a> 
+               <a href = "{% url 'eliminar_producto' id_producto=x.id %}" >Eliminar producto</a> 
+               <a href = "{% url 'desactivar_producto' id_producto=x.id %}" >Desactivar producto</a> 
+
+    {% endfor %}
+
+{% endblock%}

@@ -1,0 +1,16 @@
+{% extends 'base.html '%}
+{%  block titulo%}
+LISTA PRODUCTOS
+{% endblock titulo%}
+
+{% block contenido%}
+    <h2>Agregar producto</h2>
+
+   <form action ="" method="POST" enctype ="multipart/form-data">   
+        {% csrf_token%}
+        {{formulario.as_p}}
+        <input type="submit" name="Agregar">
+
+    </form>
+
+{% endblock%}

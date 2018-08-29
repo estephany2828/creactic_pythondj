@@ -1,0 +1,17 @@
+{% extends 'base.html '%}
+{%  block titulo%}
+LISTA PRODUCTOS
+{% endblock titulo %}
+
+{% block contenido%}
+    <h1> Agregr Producto</h1>
+    <form action="" method="POST" >
+        {% csrf_token %}
+        {{ formulario }}
+        <input type="submit" name="login">
+        
+    </form>
+    <a href= "{% url 'vista_register' %}"> Registrate </a>
+   
+    
+{% endblock contenido %}
