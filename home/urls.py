@@ -18,5 +18,6 @@ urlpatterns = [
     path('logout/', logout_view,name='logout'),
     path('register/',  register_view, name="vista_register"), 
     path('thanks_for_register/', thanks_for_register_view, name = 'thanks_for_register'),
+    
 
 ]

@@ -25,7 +25,7 @@ SECRET_KEY = 'd@k^s2nnmqqv3@+8v5mxbc4q_77k2r-7zzz7r4nypirnzip#b&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['creactictienda30082018.herokuapp.com']
 
 
 # Application definition
@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'home',
     'webservices',
     'rest_framework',
+    'gunicorn',
+    'psycopg2',
 ]
 
 
@@ -128,9 +130,11 @@ USE_TZ = True
 
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
-]
+STATIC_ROOT =os.path.join(BASE_DIR, 'static')
+
+#STATICFILES_DIRS = [
+#    os.path.join(BASE_DIR, "static"),
+#]
 MEDIA_URL = '/media/'
 MEDIA_ROOT = 'media'
 
